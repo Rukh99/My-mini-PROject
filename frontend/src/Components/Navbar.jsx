@@ -1,25 +1,79 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import useAppContext from "../AppContext"
 
 const Navbar = () => {
-  return (
-    <div className='container bg-dark me-auto mb-2 mb-lg-0 p-3 text-white'>
-    <nav className="navbar">
-    <h3 style={{color:"blue"}}> FREELANCER </h3>
-  <div className="container">
-  <ul> 
-  <li>
-  <NavLink className="nav-item" to="/Signup">SIGNUP </NavLink>
-  </li>
-  <li>
-  <NavLink className="nav-item" to="/login">LOGIN  </NavLink>
-  </li>
-  </ul>
-    
-  </div>
-</nav>
+  const {loggedIn,logout,} = useAppContext();
+  const showLoginOption =()=>{
+    if(loggedIn){
+      return(
+        <li className="nav-item">
+        <button  className="btn btn-primary"  onClick={logout} >
+          Logout 
+        </button>
+        </li>
+      )
+        
+    }
+}
 
-</div>
+  
+  return (
+    <nav className="navbar navbar-expand-lg bg-primary p-3">
+    <div className="container ">
+      <a className="navbar-brand bg-body-primary fw-bold" href="#">
+        FREELANCER
+      </a>
+      <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/">
+              HOME
+            </NavLink>
+          </li>
+          <li className="nav-item">
+          <NavLink className="nav-link" to="/aboutus">
+            ABOUT US
+          </NavLink>
+        </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              LOGIN
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/signup">
+              SIGNUP 
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/browzeproject">
+              PROJECT LIST 
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/addproject">
+              ADD PROJECT 
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/projectmanager">
+              PROJECT  MANAGER 
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/profile">
+               FREELANCERS 
+            </NavLink>
+            showLoginOption();
+          </li>
+         
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+    
   )
 }
 

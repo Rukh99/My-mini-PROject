@@ -1,6 +1,7 @@
 // import express
 const express = require('express');
-const userRouter = require('./routers/userRouter');
+const userRouter = require('./Routers/UserRouter');
+const ProjectRouter=require('./Routers/ProjectRouter');
 const cors = require('cors');
 
 // initialize express
@@ -15,6 +16,7 @@ app.use( cors({
 }));
 
 app.use( '/user', userRouter )
+app.use('/project', ProjectRouter)
 
 // routes
 app.get('/', (req, res) => {
