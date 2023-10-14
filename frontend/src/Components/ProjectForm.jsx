@@ -38,37 +38,38 @@ const ProjectForm = () => {
     })
 
   return (
-    <div class="container">
-    <div className='card mx-auto bg-dark text-white '>
-    <div className='card-body '>
+    <div class="container mt-5">
+    
+    <div className='card bg-dark'>
+    <div className='card-body'>
     <header>
     <h1 className='text-primary text-center'> FREELANCER </h1>
     <h4 className='text-secondary text-center '>Tell us what you need done </h4>
     </header>
+    <hr/>
     
 <form onSubmit={addForm.handleSubmit}>
-<label> PROJECT NAME </label>
+<label className='card-title'> PROJECT NAME </label>
 <input id="name" onChange={addForm.handleChange} value={addForm.values.name}  type="text" className="form-control">
 </input>
-<label> PROJECT DESCRIPTION  </label>
+<label className='card-title '> PROJECT DESCRIPTION  </label>
 <input id="description" onChange={addForm.handleChange} value={addForm.values.description} type="text" className="form-control">
 </input>
-<label> DURATION  </label>
+<label className='card-title'> DURATION  </label>
 <input id="duration" onChange={addForm.handleChange} value={addForm.values.duration}type="text" className="form-control">
 </input>
-<label> AMOUNT  </label>
+<label className='card-title'> AMOUNT  </label>
 <input id="amount" onChange={addForm.handleChange} value={addForm.values.amount}type="text" className="form-control">
 </input>
-<label> TECHNOLOGY USED  </label>
+<label className='card-title'> TECHNOLOGY USED  </label>
 <input id="technology" onChange={addForm.handleChange} value={addForm.values.technology} type="text" className="form-control">
 </input><br/>
-<label> REFERENCE  </label>
-<input id="reference" onChange={addForm.handleChange} value={addForm.values.reference} type="text" className="form-control">
-</input><br/>
-<button type="submit" className='btn btn-primary form-control'> SUBMIT  </button>
+
+<button type="submit" className='button'> SUBMIT  </button>
 
 
 </form>
+</div>
     </div>
     '
     
@@ -76,7 +77,7 @@ const ProjectForm = () => {
     
     
     
-    </div>
+    
   )
 }
 

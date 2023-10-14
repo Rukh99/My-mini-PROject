@@ -1,85 +1,89 @@
 import { Formik } from 'formik'
 import React, { useEffect, useState } from 'react'
-import{useNavigate} from 'react-router-dom'
-import Swal  from 'sweetalert2'
+import { useNavigate, useParams } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import ProjectForm from './ProjectForm'
 
 const UpdateProject = () => {
-    const [getProjectData, setProjectData] = useState()
-    
-    const navigate= useNavigate();
+  const [projectData, setProjectData] = useState(null);
+  const { id } = useParams();
 
-    const fetchProjectData= async()  =>{
-        const res = await fetch("http://localhost:5000/project/getbyid/", +id)
-        console.log(res.status);
-        const data= await res.json();
-        console.log(data);
-        setProjectData(data);
+  const navigate = useNavigate();
 
-    }
-    useEffect(() => {
-    }, [fetchProjectData]);
+  const fetchProjectData = async () => {
+    const res = await fetch("http://localhost:5000/project/getbyid/"+id)
+    console.log(res.status);
+    const data = await res.json();
+    console.log(data);
+    setProjectData(data);
 
-    const submitFOrm  = async(values) => {
-        const res = await fetch("http://localhost:5000/project/update/" +id,
-        {
-            method:'PUT',
-            body: json.stringify(values),
-            Headers:{'Content-Type': 'application/json'}
+  }
+  
+  useEffect(() => {
+    fetchProjectData();
+  }, []);
 
 
-        });}
-        console.log(res.status);
-        if(res.status===200)
-        Swal.fire({
-    icon:'success',
-    title:'Project updated successfully'
 
-    })
-
-    naviagte('/UpdateProject')
+  const submitForm = async (values) => {
+    const res = await fetch("http://localhost:5000/project/update/" + id,
+      {
+        method: 'PUT',
+        body: JSON.stringify(values),
+        headers: { 'Content-Type': 'application/json' }
 
 
+      });
+
+    console.log(res.status);
+    if (res.status === 200) {
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Project updated successfully',
         
 
-
-    
+      })
+      navigate ('/browzeproject'); 
+    }
+   
+  }
 
   return (
     <div>
-    <div className='col-md-4 mx-auto'>
-    <div className='card'>
-    <div className='card-body'>
-    <h2 className='PROJECT UPDATE FORM '> </h2>
-    {getProjectData !== null ? (
-        <Formik initialValues={getProjectData} onSubmit={ProjectForm}>
-          {(ProjectForm) => (
-            <form onSubmit={ProjectForm.handleSubmit}>
-            
-<label> PROJECT NAME </label>
-<input id="name" onChange={addForm.handleChange} value={addForm.values.name}  type="text" className="form-control">
-</input>
-<label> PROJECT DESCRIPTION  </label>
-<input id="description" onChange={addForm.handleChange} value={addForm.values.description} type="text" className="form-control">
-</input>
-<label> DURATION  </label>
-<input id="duration" onChange={addForm.handleChange} value={addForm.values.duration}type="text" className="form-control">
-</input>
-<label> AMOUNT  </label>
-<input id="amount" onChange={addForm.handleChange} value={addForm.values.amount}type="text" className="form-control">
-</input>
-<label> TECHNOLOGY USED  </label>
-<input id="technology" onChange={addForm.handleChange} value={addForm.values.technology} type="text" className="form-control">
-</input><br/>
-<label> REFERENCE  </label>
-<input id="reference" onChange={addForm.handleChange} value={addForm.values.reference} type="text" className="form-control">
-</input><br/>
-<button type="submit" className='btn btn-primary form-control'> SUBMIT  </button>
+      <div className='col-md-6 mx-auto'>
+        <div className='card bg-dark'>
+          <div className='card-body '>
+            <h2  className='text-white'> PROJECT UPDATE FORM  </h2>
+            {projectData !== null ? (
+              <Formik initialValues={projectData} onSubmit={submitForm}>
+                {(ProjectForm) => (
+                  <form onSubmit={ProjectForm.handleSubmit}>
 
+                    <label className='card-title'> PROJECT NAME </label>
+                    <input id="name" onChange={ProjectForm.handleChange} value={ProjectForm.values.name} type="text" className="form-control">
+                    </input>
+                    <label className='card-title'> PROJECT DESCRIPTION  </label>
+                    <input id="description" onChange={ProjectForm.handleChange} value={ProjectForm.values.description} type="text" className="form-control">
+                    </input>
+                    <label className='card-title'> DURATION  </label>
+                    <input id="duration" onChange={ProjectForm.handleChange} value={ProjectForm.values.duration} type="text" className="form-control">
+                    </input>
+                    <label className='card-title'> AMOUNT  </label>
+                    <input id="amount" onChange={ProjectForm.handleChange} value={ProjectForm.values.amount} type="text" className="form-control">
+                    </input>
+                    <label className='card-title'> TECHNOLOGY USED  </label>
+                    <input id="technology" onChange={ProjectForm.handleChange} value={ProjectForm.values.technology} type="text" className="form-control">
+                    </input><br />
+                    
+                    <button type="submit" className='button'> SUBMIT  </button>
+                   
 
-</form>)}
- </Formik>)}
- </div> </div> </div> </div>
+                  </form>)}
+              </Formik>) : <h1>Loading ...</h1>}
+          
+
+          </div> </div> </div> </div>
 
   )
 }
