@@ -46,12 +46,15 @@ Use our collaboration tools to work efficiently with your freelancer. Share file
         </div>
         
         </div>
-        <footer className='footer'>
-          <h3 className='text-white text-center ' >
-            Power your organisation competitive advantage with Freelancer
-          </h3>
+        <div>
+        <footer className='footer p-2'>
+        <h3 className='text-white text-center ' >
+          Power your organisation competitive advantage with Freelancer
+        </h3>
 
-        </footer>
+      </footer>
+        </div>
+       
     
         </div>
 

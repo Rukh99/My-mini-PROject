@@ -96,6 +96,10 @@ card-tit {
   font-size: 10px;
   color: rebeccapurple; /* Text color */
 }
+.container-1
+{
+  background-image:url("https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1697328000&semt=sph")
+}
 
 /* You can add more styles for other elements within the card body */
 

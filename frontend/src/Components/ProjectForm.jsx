@@ -44,7 +44,7 @@ const ProjectForm = () => {
     <div className='card-body'>
     <header>
     <h1 className='text-primary text-center'> FREELANCER </h1>
-    <h4 className='text-secondary text-center '>Tell us what you need done </h4>
+    <h4 className='text-secondary text-center '> Tell us what you need done </h4>
     </header>
     <hr/>
     

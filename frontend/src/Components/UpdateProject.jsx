@@ -74,7 +74,8 @@ const UpdateProject = () => {
                     </input>
                     <label className='card-title'> TECHNOLOGY USED  </label>
                     <input id="technology" onChange={ProjectForm.handleChange} value={ProjectForm.values.technology} type="text" className="form-control">
-                    </input><br />
+                    </input>
+                    <br />
                     
                     <button type="submit" className='button'> SUBMIT  </button>
                    

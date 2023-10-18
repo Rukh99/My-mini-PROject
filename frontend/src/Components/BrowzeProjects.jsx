@@ -25,9 +25,12 @@ const BrowzeProjects = () => {
                         <h3>{project.name}</h3>
                         <p>{project.amount}</p>
                         <p>{project.technology}</p>
+                        <button className='button'>
                         <Link to={'/projectdetails/' + project._id}>
-                            View More
-                        </Link>
+                        View More
+                    </Link>
+                        </button>
+                       
                     </div>
                 </div>
             </div>
@@ -36,16 +39,20 @@ const BrowzeProjects = () => {
 
 
     return (
-        <div className='container'>
-
-            <h1 className='text-center text-primary'  > INTRODUCING PROJECTS HUB </h1>
-            <h5 className='text-secondary'> Build What you love  </h5>
+        <div className='container-1 '>
+        <header>
+        <h1 className='text-center text-primary'  > INTRODUCING PROJECTS HUB </h1>
+            <h5 className='text-secondary text-danger'> Build What you love  </h5>
             <div className='row'>
-                <h1 className='bg-body-dark'> EXPLORE YOUR CATEGORIES </h1>
+                <h1 className='bg-body-dark text-danger'> EXPLORE YOUR CATEGORIES </h1>
                 {displayData()}
             </div>
 
+       
+        </header>
         </div>
+
+            
     )
 }
 
