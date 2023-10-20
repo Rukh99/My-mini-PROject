@@ -14,6 +14,7 @@ const Navbar = () => { //  custom props in react same as attributes in html file
           <button className="btn btn-danger" onClick={logout} >
             Logout
           </button>
+          
         </li>
       )
 

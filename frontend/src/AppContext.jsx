@@ -13,14 +13,14 @@ export const AppProvider = ({ children }) => {
     const [loggedIn, setLoggedIn] = useState(user != null);
 
 
-    const logOut = () => {
+    const logout = () => {
       setLoggedIn(false);
       sessionStorage.removeItem('user')
       navigate('/');
     }
 
     return (
-      <AppContext.Provider value={{ loggedIn, setLoggedIn, logOut }}>{children}</AppContext.Provider>
+      <AppContext.Provider value={{ loggedIn, setLoggedIn, logout }}>{children}</AppContext.Provider>
     )
   }
   const useAppContext = () => useContext(AppContext);

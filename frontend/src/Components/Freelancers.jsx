@@ -31,17 +31,7 @@ const Freelancers = () => {
     }
 
   }
-
-
-
-
-
-
-
-
-
-
-  return (
+return (
     <div>
 
       <header className="bg-dark p-3">

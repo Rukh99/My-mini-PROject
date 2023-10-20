@@ -1,18 +1,22 @@
 import React from 'react'
+import {Typewriter} from 'react-simple-typewriter'
 
 const Aboutus = () => {
   return (
 <div>
 
     <div className='container'>
+    <h1 className='text-center display-4 mt-4'>ABOUT US</h1>
+    <h3 className='text-primary text-center'>
+    <Typewriter loop={false} words={["World's largest freelancing and crowd sourcing marketplace", "We connect over 69,315,301 employers and freelancers globally from over 247 countries, regions, and territories."]}/>
+    </h3>
     <header>
     <div className='row py-5'>
-    <div className='col-md-6'>
-    <img className="my-img"src="https://kinsta.com/wp-content/uploads/2021/11/about-us-page.png"/>
+    <div className='col-md-10 mx-auto'>
+    <img className="my-img w-100" src="https://kinsta.com/wp-content/uploads/2021/11/about-us-page.png"/>
     </div>
     <div className='col-md-6'>
-    <h3 className='text-primary'> World's largest freelancing and crowd sourcing marketplace.
-    We connect over 69,315,301 employers and freelancers globally from over 247 countries, regions, and territories.</h3>
+    
     </div>
     </div>
     </header>

@@ -20,6 +20,7 @@ const BrowzeProjects = () => {
     const displayData = () => {
         return projectList.map((project) => {
             return <div className='col-md-4'>
+            
                 <div className='card'>
                     <div className="card-body">
                         <h3>{project.name}</h3>
@@ -40,8 +41,9 @@ const BrowzeProjects = () => {
 
     return (
         <div className='container-1 '>
-        <header>
+        <header className='bg-dark p-3'>
         <h1 className='text-center text-primary'  > INTRODUCING PROJECTS HUB </h1>
+        <input type="text" id="mySearch" onkeyup="myFunction()" placeholder="Search.." title="Type in a category"></input>
             <h5 className='text-secondary text-danger'> Build What you love  </h5>
             <div className='row'>
                 <h1 className='bg-body-dark text-danger'> EXPLORE YOUR CATEGORIES </h1>

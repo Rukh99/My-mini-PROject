@@ -22,15 +22,34 @@ const ProjectDetails = () => {
     const displayProjectData = () => {
         if (projectData !== null) {
             return (
-                <div className='card my-auto'>
-                <h3 className='text-primary'> PROJECT DETAILS </h3>
-                    <div className='card-body'>
-                        <h3>Name: {projectData.name}</h3>
-                        <h3> DESCRIPTION: {projectData.description}</h3>
-                        <h3>Amount: {projectData.amount}</h3>
-                        <h3>  TECHNOLOGY: {projectData.technology}</h3>
-                        <h3> DURATION :{projectData.duration}</h3>
+                <div className='card mx-auto'>
+                <h3 className='text-primary text-center'> PROJECT DETAILS </h3>
+                    <div className='card-body mx-auto'>
 
+                    <table className='table mx-auto'>
+                    <thead>
+                    <tr className="">
+                    <th>  NAME </th>
+                    <th>  DESCRIPTION </th>
+                    <th>  AMOUNT </th>
+                    <th>  TECHNOLOGY </th>
+                    <th>  DURATION </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                    <td> {projectData.name}  </td>
+                    <td>{projectData.description} </td>
+                    <td> {projectData.amount}</td>
+                    <td> {projectData.technology}</td>
+                    <td>{projectData.duration} </td>
+                    </tr>
+
+                    
+                    </tbody>
+                    </table>
+                        
 
                     </div>
                 </div>
@@ -45,7 +64,7 @@ const ProjectDetails = () => {
             {displayProjectData()}
 
 
-        </div>
+        </div> 
     )
 }
 
